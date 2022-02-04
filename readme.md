@@ -1,5 +1,8 @@
 # portfolio
 
+A portfolio that uses a decoupled wordpress site and generates a static site using nuxt.js
+d
+
 ## Build Setup
 
 ```bash
