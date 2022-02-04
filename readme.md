@@ -5,9 +5,9 @@
 </p>
 
 <h2 align="center">🔥 Portfolio 🔥</h2>
-<hr/>
-Hi, my name is Harrison. I'm a designer who likes to code 🤓
-
+<p align="center">Hi, my name is Harrison. I'm a designer who likes to code 🤓
+</p>
+<br/>
 This repo contains the configuration of my jamstack portfolio which uses a headless wordpress. For the best experience, just view my portfolio via this link. If you are still curious how this works you have been warned, this will not work just by cloning the repo... 👹
 
 <h3>
@@ -17,8 +17,6 @@ This repo contains the configuration of my jamstack portfolio which uses a headl
 </h3>
 
 ## Tech Stack 📚
-
-<hr/>
 
 This portfolio is decoupled with the WordPress CMS hosted on basic shared hosting and the nuxt.js frontend being deployed by Vercel. If you are just getting started and want to do this type of setup yourself, I would look at this example first by Netlify
 
@@ -45,13 +43,9 @@ This portfolio is decoupled with the WordPress CMS hosted on basic shared hostin
 
 ## Permissions
 
-<hr/>
-
 This portfolio is a mishmash of public repositories and blog posts that I have modified and added my additions. You can use parts of the code for your own site, it is open source so people can learn from it and adapt it just like I did. However, I would encourage you to modify the theme and components to make them your own.
 
 ## Build
-
-<hr/>
 
 ⚠️ You will need your own decoupled wordpress for this to work
 
