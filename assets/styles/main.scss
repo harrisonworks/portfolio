@@ -1,0 +1,283 @@
+$h1-font-size: 3.052rem !default;
+$h2-font-size: 2.441rem !default;
+$h3-font-size: 1.953rem !default;
+$h4-font-size: 1.563rem !default;
+$h5-font-size: 1.25rem !default;
+$h6-font-size: 1rem;
+
+$headings-font-weight: 500;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1000px,
+) !default;
+
+@import 'bootstrap/scss/bootstrap.scss';
+
+:root {
+  --color-text: #17151a;
+  --color-secondary: #403b4a;
+  --color-bg: #fff9ff;
+
+  --color-link: #2c72ea;
+  --color-link-hover: #645359;
+
+  --color-highlight: #ff0093;
+
+  --color-bg-num: 255, 247, 255;
+  --border-radius: 20px;
+}
+
+.dark-mode {
+  --color-text: #fff9ff;
+  --color-secondary: #aca2ac;
+
+  --color-bg: #17151a;
+  --color-link-hover: #645359;
+
+  --color-bg-num: 23, 21, 26;
+}
+
+body {
+  font-family: 'Cabin', sans-serif;
+
+  background: var(--color-bg);
+  color: var(--color-text);
+  margin: auto;
+  font-size: 16px;
+}
+
+// fix any overlap issues
+.container {
+  position: relative;
+}
+
+h2,
+h3,
+h4 {
+  font-weight: 500;
+  margin: 1.4rem 0 1rem 0;
+}
+
+strong {
+  font-weight: 700;
+}
+
+h1 {
+  font-weight: 700;
+  // margin-top: 0;
+  margin: 1.4rem 0 1rem 0;
+
+  font-size: 3.052rem;
+}
+
+h2 {
+  font-size: 2.441rem;
+}
+
+h3 {
+  font-size: 1.953rem;
+}
+
+h4 {
+  font-size: 1.563rem;
+  margin-bottom: 0.6em;
+}
+
+h5 {
+  font-size: 1.25rem;
+  margin-bottom: 0.6em;
+}
+
+small,
+.text_small {
+  font-size: 0.8rem;
+}
+
+.subheading {
+  font-weight: 300;
+  color: var(--color-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+}
+
+img {
+  border-radius: 20px;
+  height: 100%;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+
+video {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-text);
+  transition: 0.4s all;
+}
+
+a:hover {
+  color: var(--color-link-hover);
+  text-decoration: none;
+}
+
+// custom highlighting
+::-moz-selection {
+  background: var(--color-highlight);
+  color: var(--color-bg);
+}
+::selection {
+  background: var(--color-highlight);
+  color: var(--color-bg);
+}
+
+hr {
+  margin: 1.5rem 0;
+  border-bottom: 1px solid var(--color-link-hover);
+}
+
+ul {
+  padding-left: 1em;
+}
+
+// wordpress content classes
+
+.wp-block-columns {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.wp-block-column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+.wp-block-image,
+.wp-block-video {
+  padding: 1rem;
+}
+
+// a tags appear when in content
+#content p a {
+  color: var(--color-link);
+}
+
+#content p a:hover {
+  color: var(--color-link-hover);
+}
+
+.wp-block-image figcaption {
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.wp-block-image img {
+  max-width: 100%;
+}
+
+.blocks-gallery-grid {
+  display: flex;
+  flex-direction: row;
+}
+
+.blocks-gallery-item {
+  padding: 1rem;
+  height: auto;
+}
+
+.blocks-gallery-item figure {
+  margin-bottom: 0px;
+}
+
+.blocks-gallery-grid {
+  padding-left: 0;
+}
+
+.blocks-gallery-grid li {
+  list-style-type: none;
+}
+
+.btn-custom,
+.wp-block-button {
+  display: inline-block;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1rem;
+  color: var(--color-bg);
+  border: 2px solid var(--color-text);
+  padding: 0.5em 0.7em;
+  border-radius: 2em;
+  // margin: 0 0.8em;
+  box-shadow: 0 0 var(--color-link-hover);
+  background: var(--color-text);
+  transition: all 0.4s;
+  text-transform: uppercase;
+}
+
+.btn-custom a,
+.wp-block-button .wp-block-button__link {
+  font-size: 1rem;
+  color: var(--color-bg);
+  text-decoration: none;
+}
+
+.btn-custom:hover,
+.wp-block-button:hover {
+  border-radius: 2rem;
+
+  color: var(--color-bg);
+  border: 2px solid var(--color-text);
+  background: var(--color-text);
+
+  box-shadow: 4px 4px var(--color-link-hover);
+}
+
+.is-vertically-aligned-center {
+  justify-content: center;
+}
+
+//mobile
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-weight: 600;
+  }
+
+  hr {
+    margin: 2.5rem 0;
+  }
+
+  .enlargeable-image {
+    padding: $spacer * 0 0;
+  }
+
+  .wp-bootstrap-blocks-row {
+    margin: $spacer * 3 0;
+  }
+
+  .wp-block-columns {
+    margin: $spacer * 1.5 0;
+    display: block;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .wp-block-column {
+    display: block;
+  }
+  .wp-block-image,
+  .wp-block-video {
+    padding: 1.5em;
+  }
+}
