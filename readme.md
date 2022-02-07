@@ -8,7 +8,7 @@
 <p align="center">Hi, my name is Harrison. I'm a designer who likes to code 🤓
 </p>
 <br/>
-This repo contains the configuration of my jamstack portfolio which uses a headless wordpress. For the best experience, just view my portfolio via this link. If you are still curious how this works you have been warned, this will not work just by cloning the repo... 👹
+This contains the configuration of my design portfolio, it uses nuxt.js on the front and a decoupled WordPress for content. For the best experience, just view my portfolio via this link. If you are still curious how this works you have been warned, this will not work just by cloning... 👹
 
 <h3>
   <a href="https://harrison.works" target="_blank">
