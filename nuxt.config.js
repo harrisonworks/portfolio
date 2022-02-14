@@ -1,6 +1,7 @@
 import axios from 'axios'
 const dynamicRoutes = () => {
   const routes = axios.get(`${process.env.API_URL}`).then((res) => {
+    console.log(res.data.length)
     return res.data.map((post) => `/project/${post.slug}`)
   })
   // console.log(routes)
@@ -13,7 +14,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Harrison McEwen - designer, web developer, and creative coder',
+    title: 'Harrison McEwen | Designer, Web Developer, and Creative Coder',
     titleTemplate: '%s',
     htmlAttrs: {
       lang: 'en',
