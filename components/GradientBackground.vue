@@ -262,18 +262,23 @@ export default {
 			// removed this as it doubles the number of pixels on screen
 			// this.renderer.setPixelRatio(window.devicePixelRatio)
 			// only on mobile add this
+			let scrollBarOffset = 15
 			if (this.$device.isMobile) {
+				scrollBarOffset = 0
 				this.renderer.setPixelRatio(window.devicePixelRatio)
 			}
 
-			this.renderer.setSize(window.innerWidth, this.scrollHeight)
+			this.renderer.setSize(
+				window.innerWidth - scrollBarOffset,
+				this.scrollHeight
+			)
 			// container.appendChild(this.renderer.domElement)
 			container.insertBefore(this.renderer.domElement, overlay)
 
 			this.scene = new Three.Scene()
 			this.camera = new Three.PerspectiveCamera(
 				75,
-				window.innerWidth / this.scrollHeight,
+				(window.innerWidth - scrollBarOffset) / this.scrollHeight,
 				0.1,
 				1000
 			)
@@ -401,7 +406,7 @@ export default {
 #container {
 	position: absolute;
 
-	width: 100vw;
+	width: 100%;
 	height: 100vh;
 }
 
