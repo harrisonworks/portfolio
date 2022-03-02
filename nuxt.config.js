@@ -1,9 +1,13 @@
 import axios from 'axios'
 const dynamicRoutes = () => {
-  const routes = axios.get(`${process.env.API_URL}`).then((res) => {
-    console.log(res.data.length)
-    return res.data.map((post) => `/project/${post.slug}`)
-  })
+  const routes = axios
+    .get(
+      `${process.env.API_URL}/index.php/wp-json/wp/v2/posts?page=1&per_page=20&_embed=1&acf_format=standard`
+    )
+    .then((res) => {
+      console.log(res.data.length)
+      return res.data.map((post) => `/project/${post.slug}`)
+    })
   // console.log(routes)
   return routes
 }
