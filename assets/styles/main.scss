@@ -177,6 +177,14 @@ ul {
   color: var(--color-link-hover);
 }
 
+#links a {
+  color: var(--color-highlight);
+}
+
+#links a:hover {
+  color: var(--color-link-hover);
+}
+
 .wp-block-image figcaption {
   text-align: center;
   font-size: 0.8rem;

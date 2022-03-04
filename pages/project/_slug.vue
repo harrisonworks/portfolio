@@ -1,9 +1,32 @@
 <template>
 	<main class="container-lg">
 		<div class="post">
-			<h1 id="header" style="overflow: hidden" class="subheading m-0 h5">
-				{{ post.title.rendered }}
-			</h1>
+			<div class="d-flex">
+				<h1 id="header" style="overflow: hidden" class="subheading m-0 h5">
+					{{ post.title.rendered }}
+				</h1>
+
+				<div id="links" class="ms-auto">
+					<a
+						v-if="websiteLink()"
+						style="overflow: hidden"
+						class="mb-0 h6"
+						:href="websiteLink()"
+						target="_blank"
+						rel="noopener noreferrer"
+						>Website</a
+					>
+					<a
+						v-if="githubLink()"
+						style="overflow: hidden"
+						class="ms-3 mb-0 h6"
+						:href="githubLink()"
+						target="_blank"
+						rel="noopener noreferrer"
+						>GitHub</a
+					>
+				</div>
+			</div>
 			<hr />
 			<div id="content" v-html="post.content.rendered"></div>
 		</div>
@@ -14,7 +37,6 @@
 import SplitType from 'split-type'
 
 export default {
-	// THIS ONLY WORKS IF THERE IS A FEATURED IMAGE
 	name: 'ProjectPage',
 	transition: {
 		name: 'project',
@@ -26,6 +48,8 @@ export default {
 			})
 			const border = el.querySelector('hr')
 
+			const links = el.querySelector('#links').children
+			console.log(links)
 			const postElements = el.querySelector('#content').children
 			this.$gsap
 				.timeline({ onComplete: done })
@@ -43,7 +67,18 @@ export default {
 						duration: 0.6,
 						ease: 'expo',
 					},
-					'-=50%'
+					'-=20%'
+				)
+				.from(
+					links,
+					{
+						opacity: 0,
+						y: '-100%',
+						duration: 0.3,
+						ease: 'power2.out',
+						stagger: { amount: 0.05 },
+					},
+					'>'
 				)
 				.from(
 					heading.words,
@@ -73,6 +108,7 @@ export default {
 					ease: 'expo',
 					stagger: { amount: 0.05 },
 				})
+
 				.to(
 					border,
 					{
@@ -153,8 +189,27 @@ export default {
 			const post = this.posts.find((el) => el.slug === this.slug)
 			return post
 		},
-		header() {
-			return document.getElementsByTagName('h1')[0]
+	},
+	methods: {
+		websiteLink() {
+			if (
+				typeof this.post.acf.website_link !== 'undefined' &&
+				this.post.acf.website_link
+			) {
+				return this.post.acf.website_link
+			} else {
+				return false
+			}
+		},
+		githubLink() {
+			if (
+				typeof this.post.acf.github_link !== 'undefined' &&
+				this.post.acf.github_link
+			) {
+				return this.post.acf.github_link
+			} else {
+				return false
+			}
 		},
 	},
 }
