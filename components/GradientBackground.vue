@@ -262,23 +262,23 @@ export default {
 			// removed this as it doubles the number of pixels on screen
 			// this.renderer.setPixelRatio(window.devicePixelRatio)
 			// only on mobile add this
-			let scrollBarOffset = 15
-			if (this.$device.isMobile) {
-				scrollBarOffset = 0
-				this.renderer.setPixelRatio(window.devicePixelRatio)
-			}
 
-			this.renderer.setSize(
-				window.innerWidth - scrollBarOffset,
-				this.scrollHeight
-			)
+			// better solution is just to hide scrollbars with css
+			// bye for now
+			// let scrollBarOffset = 15
+			// if (this.$device.isMobile) {
+			// 	scrollBarOffset = 0
+			// 	this.renderer.setPixelRatio(window.devicePixelRatio)
+			// }
+
+			this.renderer.setSize(window.innerWidth, this.scrollHeight)
 			// container.appendChild(this.renderer.domElement)
 			container.insertBefore(this.renderer.domElement, overlay)
 
 			this.scene = new Three.Scene()
 			this.camera = new Three.PerspectiveCamera(
 				75,
-				(window.innerWidth - scrollBarOffset) / this.scrollHeight,
+				window.innerWidth / this.scrollHeight,
 				0.1,
 				1000
 			)
