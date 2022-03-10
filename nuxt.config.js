@@ -113,6 +113,7 @@ export default {
 
   publicRuntimeConfig: {
     baseURL: process.env.API_URL,
+    gTag: process.env.G_TAG,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

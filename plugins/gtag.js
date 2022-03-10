@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueGtag from 'vue-gtag'
-
-Vue.use(VueGtag, {
-  config: { id: process.env.G_TAG },
-})
+export default function ({ $config }) {
+  Vue.use(VueGtag, {
+    config: { id: $config.gTag },
+  })
+}
