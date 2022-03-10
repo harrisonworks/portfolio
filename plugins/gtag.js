@@ -2,5 +2,5 @@ import Vue from 'vue'
 import VueGtag from 'vue-gtag'
 
 Vue.use(VueGtag, {
-  config: { id: 'G-3XM48M93SM' },
+  config: { id: process.env.G_TAG },
 })
