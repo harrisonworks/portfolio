@@ -139,6 +139,7 @@ export default {
 			loaded: false,
 			show: false,
 			x_turbulence_devation: null,
+			sphereMesh: null,
 		}
 	},
 	computed: {
@@ -321,6 +322,22 @@ export default {
 			this.mesh.rotationZ = 0.1
 			this.scene.add(this.mesh)
 
+			// const material1 = new Three.MeshPhysicalMaterial({
+			// 	roughness: 0.01,
+			// 	transmission: 1,
+			// 	thickness: 3,
+			// 	metalness: 0,
+			// 	color: '0xffffff',
+			// })
+
+			// const spGeom = new Three.SphereGeometry(20, 20, 20)
+			// this.sphereMesh = new Three.Mesh(spGeom, material1)
+			// this.sphereMesh.position.set(0, 0, 3)
+			// this.scene.add(this.sphereMesh)
+
+			// const dirLight = new Three.DirectionalLight(0xffffff, 1)
+			// this.scene.add(dirLight)
+
 			this.renderer.render(this.scene, this.camera)
 		},
 		animate() {
@@ -341,13 +358,20 @@ export default {
 
 			// Easing animation calcualted here
 			this.xEased = lerp(this.xEased, this.targetX, 0.01)
-			this.yEased = lerp(this.yEased, this.targetX, 0.01)
+			this.yEased = lerp(this.yEased, this.targetY, 0.01)
 			// console.log(this.xEased)
 
 			// camera recalculation
 			const zValue = map(this.xEased, 0, window.innerWidth, 50, 51)
+
 			const targetCamera = new Three.Vector3(0, 0, zValue)
+
 			this.camera.position.lerp(targetCamera, 1)
+
+			// const xValue = map(this.xEased, 0, window.innerWidth, -30, 30)
+			// const yValue = map(this.yEased, 0, window.innerHeight, 30, -30)
+			// const targetSphere = new Three.Vector3(xValue, yValue, 0)
+			// this.sphereMesh.position.lerp(targetSphere, 1)
 
 			// Color recacluation
 			// const newColor = map(this.xEased, 0, window.innerWidth, 140, 180)
