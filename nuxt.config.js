@@ -118,6 +118,12 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    extend(config, ctx) {
+      config.module.rules.push({
+        test: /\.(glsl|vs|fs)$/,
+        loader: 'shader-loader',
+      })
+    },
     terser: {
       // https://github.com/terser/terser#compress-options
       terserOptions: {

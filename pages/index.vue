@@ -67,6 +67,9 @@ export default {
 				types: 'words',
 			})
 
+			el.querySelector('#header').style.visibility = 'inherit'
+			el.querySelector('#subheading').style.visibility = 'inherit'
+
 			// projects
 			const projects = el.querySelectorAll('.notSelected')
 
@@ -191,6 +194,11 @@ export default {
 </script>
 
 <style scoped>
+#header,
+#subheading {
+	visibility: hidden;
+}
+
 main {
 	margin-bottom: 4rem;
 }
