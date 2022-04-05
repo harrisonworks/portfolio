@@ -1,7 +1,7 @@
 <template>
 	<main>
 		<section class="container">
-			<div style="height: 70vh" class="row align-content-center">
+			<div style="height: 75vh" class="row align-content-center">
 				<div class="col-lg-7">
 					<div ref="description">
 						<h1 id="header" style="overflow: hidden">
@@ -18,8 +18,7 @@
 		<section class="container">
 			<div class="row">
 				<div class="col">
-					<h2 class="h4">Work</h2>
-					<hr />
+					<h2 class="h4 sectionHeading">Work</h2>
 				</div>
 			</div>
 			<div class="row">
@@ -35,8 +34,7 @@
 		<section class="container">
 			<div class="row">
 				<div class="col">
-					<h2 class="h4">Experiments</h2>
-					<hr />
+					<h2 class="h4 sectionHeading">Experiments</h2>
 				</div>
 			</div>
 			<div class="row">
@@ -112,6 +110,13 @@ export default {
 					},
 					'<'
 				)
+				.from('.sectionHeading', {
+					autoAlpha: 0,
+					y: '-50%',
+					duration: 1,
+					ease: 'power2.out',
+					stagger: { amount: 0.1 },
+				})
 
 			// registering every project with a scroll trigger
 			projectList.forEach((project) => {
@@ -128,7 +133,7 @@ export default {
 						[project.image, project.title, project.skills, project.description],
 						{
 							y: '-10%',
-							opacity: 0,
+							autoAlpha: 0,
 							duration: 1,
 							ease: 'power2.out',
 							stagger: { amount: 0.4 },
@@ -201,5 +206,10 @@ export default {
 
 main {
 	margin-bottom: 4rem;
+}
+.sectionHeading {
+	visibility: hidden;
+	padding-bottom: 1.5rem;
+	border-bottom: 1.25px solid rgba(100, 83, 89, 0.3);
 }
 </style>
