@@ -68,7 +68,7 @@ export default {
 			el.querySelector('#header').style.visibility = 'inherit'
 			el.querySelector('#subheading').style.visibility = 'inherit'
 
-			//Projects
+			// Projects
 			const projects = el.querySelectorAll('.notSelected')
 
 			// Find elements of the projects
